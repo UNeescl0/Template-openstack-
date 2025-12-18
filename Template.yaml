@@ -28,3 +28,10 @@ resources:
       key_name: mykey
       networks:
         - port: { get_resource: my_port }
+
+to verify 
+''' bash 
+openstack stack list
+openstack server list
+openstack port list
+'''
