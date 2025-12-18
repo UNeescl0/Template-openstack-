@@ -1,10 +1,7 @@
-# Template-openstack-
-Ce dépôt contient un template Heat (YAML) qui déploie 3 services OpenStack :  Réseau (Neutron)  Port (Neutron)  Machine virtuelle (Nova)
-
-OpenStack Heat – 3 services
+# OpenStack Heat – 3 services
 
 ## Description
-Ce projet montre un exemple basique d'**Infrastructure as Code** avec **Heat**.
+Ce projet montre un exemple basique d'Infrastructure as Code avec OpenStack Heat.
 
 Le template crée :
 - Un réseau Neutron
@@ -13,7 +10,11 @@ Le template crée :
 
 ## Prérequis
 - OpenStack installé et fonctionnel
-- Accès CLI OpenStack
-- Image `ubuntu` existante
+- Accès à la CLI OpenStack
+- Image nommée `ubuntu`
 - Flavor `m1.small`
 - Keypair `mykey`
+
+## Déploiement
+```bash
+openstack stack create -t template.yaml stack_demo
