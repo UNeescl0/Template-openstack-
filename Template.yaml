@@ -1,0 +1,30 @@
+heat_template_version: 2018-08-31
+
+description: >
+  Template Heat simple avec 3 services :
+  - Réseau (Neutron)
+  - Port (Neutron)
+  - Machine virtuelle (Nova)
+
+resources:
+
+  my_network:
+    type: OS::Neutron::Net
+    properties:
+      name: network_heat
+
+  my_port:
+    type: OS::Neutron::Port
+    properties:
+      name: port_heat
+      network_id: { get_resource: my_network }
+
+  my_server:
+    type: OS::Nova::Server
+    properties:
+      name: vm_heat
+      image: ubuntu
+      flavor: m1.small
+      key_name: mykey
+      networks:
+        - port: { get_resource: my_port }
